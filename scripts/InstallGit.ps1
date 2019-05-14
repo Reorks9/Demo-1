@@ -1,0 +1,1 @@
+c:\InstallGit\Git-2.21.0-64-bit.exe /silent /loadinf="c:\InstallGit\git.inf"

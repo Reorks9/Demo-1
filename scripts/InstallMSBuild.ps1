@@ -1,0 +1,1 @@
+C:\InstallMSBuild\vs_buildtools.exe --config C:\InstallMSBuild\ConfigFile.vsconfig --quiet --wait

@@ -1,0 +1,1 @@
+c:\InstallSql\Query\UpdateSql.ps1

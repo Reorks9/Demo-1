@@ -1,0 +1,64 @@
+if ($env:PROCESSOR_ARCHITEW6432 -eq "AMD64") {
+    write-warning "Y'arg Matey, we're off to 64-bit land....."
+    if ($myInvocation.Line) {
+        &"$env:WINDIR\sysnative\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile $myInvocation.Line
+    }else{
+        &"$env:WINDIR\sysnative\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile -file "$($myInvocation.InvocationName)" $args
+    }
+exit $lastexitcode
+}
+
+
+write-host "Main script body"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Environment]::Is64BitProcess
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+x64 C:\Windows\System32\WindowsPowerShell\v1.0
+x32 C:\Windows\SysWOW64\WindowsPowerShell\v1.0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for PSx64
+if system x32
+ Set-Alias Start-PowerShell64 " $ env: windir \ sysnative \ WindowsPowerShell \ v1.0 \ powershell.exe "  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Start-PowerShell64 { Install-WindowsFeature -name Web-Server -IncludeManagementTools }
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if([Environment]::Is64BitProcess)
+{	
+	Install-WindowsFeature -name Web-Server -IncludeManagementTools;
+}else{
+	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if([Environment]::Is64BitProcess)
+{	
+	Install-WindowsFeature -name Web-Server -IncludeManagementTools;
+}else{
+	start powershell "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+}
+
+
+
+if([Environment]::Is64BitProcess)
+{	
+	Install-WindowsFeature -name Web-Server -IncludeManagementTools;
+}else{
+	start C:\Windows\SysNative\WindowsPowerShell\v1.0\powershell.exe "Install-WindowsFeature -name Web-Server -IncludeManagementTools"
+}
+
+
+
+
+([Environment]::Is64BitProcess)
+
+
+

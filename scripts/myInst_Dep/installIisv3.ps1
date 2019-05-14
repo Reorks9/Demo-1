@@ -1,0 +1,1 @@
+start C:\Windows\SysNative\WindowsPowerShell\v1.0\powershell.exe "Install-WindowsFeature -name Web-Server -IncludeManagementTools"

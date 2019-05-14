@@ -1,0 +1,1 @@
+c:\InstallSql\setup.exe /configurationfile="c:\InstallSql\ConfigurationFile.ini"
